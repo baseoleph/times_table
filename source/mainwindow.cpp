@@ -29,3 +29,23 @@ void MainWindow::setUpScene()
     ui->centralwidget->layout()->addWidget(mview);
 }
 
+
+void MainWindow::on_lineEditd_dots_textEdited(const QString &arg1)
+{
+    count = arg1.toInt();
+}
+
+void MainWindow::on_pushButton_dots_clicked()
+{
+    mview->mscene->updateDots(count);
+}
+
+void MainWindow::on_lineEditd_times_textEdited(const QString &arg1)
+{
+    times = arg1.toDouble();
+}
+
+void MainWindow::on_pushButton_times_clicked()
+{
+    mview->mscene->updateLines(times);
+}

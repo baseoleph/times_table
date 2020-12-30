@@ -16,8 +16,9 @@ public:
     void resizeEvent(QResizeEvent *event);
     void updateSceneRect();
 
-private:
     Scene *mscene = nullptr;
+
+private:
 
     const int SCENE_INDENT = 5;
 };

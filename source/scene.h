@@ -24,6 +24,11 @@ private:
 
     const int DOT_RAD = 3;
     int radius;
+    double times_t = 1;
+    int color_cnt = 1;
+    int r = 100;
+    int g = 0;
+    int b = 0;
     QPointF center_of_el;
 };
 

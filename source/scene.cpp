@@ -27,11 +27,44 @@ void Scene::setUp()
     el->setRect(rect_width, rect_height, radius * 2, radius * 2);
 
     center_of_el = el->rect().center();
+    clearLines();
+
+    color_cnt += 1;
+    color_cnt %= 3;
+
+
+//    if (color_cnt == 0)
+//    {
+//        r += 1;
+//        r %= 255;
+//    }
+//    else if ( color_cnt == 1)
+//    {
+//        g += 2;
+//        g %= 255;
+//    }
+//    else if ( color_cnt == 2)
+//    {
+        b += 1;
+        b %= 255;
+//    }
+
+    QPen pen_line(QColor(r, g, b));
     for (int i = 0; i < dots.size(); ++i)
     {
         double x = center_of_el.x() - radius * qCos(2 * M_PI / dots.size() * i) - DOT_RAD;
         double y = center_of_el.y() - radius * qSin(2 * M_PI / dots.size() * i) - DOT_RAD;
         dots[i]->setRect(x, y, DOT_RAD * 2, DOT_RAD * 2);
+
+        QLineF line;
+        line.setP1(QPointF(x + DOT_RAD, y + DOT_RAD));
+        x = center_of_el.x() - radius * qCos(2 * M_PI / dots.size() * (i * times_t));
+        y = center_of_el.y() - radius * qSin(2 * M_PI / dots.size() * (i * times_t));
+        line.setP2(QPointF(x, y));
+        lines.append(new QGraphicsLineItem);
+        lines.last()->setLine(line);
+        lines.last()->setPen(pen_line);
+        addItem(lines.last());
     }
 }
 
@@ -39,11 +72,15 @@ void Scene::updateDots(int cnt)
 {
     clearDots();
 
+    QPen dot_pen(Qt::darkCyan, 1);
+    QBrush dot_brush(Qt::darkCyan);
     if (cnt != 0)
     {
         for (int i = 0; i < cnt; ++i)
         {
             dots.append(new QGraphicsEllipseItem);
+            dots.last()->setPen(dot_pen);
+            dots.last()->setBrush(dot_brush);
             addItem(dots.last());
         }
     }
@@ -52,18 +89,8 @@ void Scene::updateDots(int cnt)
 
 void Scene::updateLines(double times)
 {
-    clearLines();
-    for (int i = 0; i < dots.size(); ++i)
-    {
-        QLineF line;
-        line.setP1(dots[i]->rect().center());
-        double x = center_of_el.x() - radius * qCos(2 * M_PI / dots.size() * (i * times)) - DOT_RAD;
-        double y = center_of_el.y() - radius * qSin(2 * M_PI / dots.size() * (i * times)) - DOT_RAD;
-        line.setP2(QPointF(x+100, y+100));
-        lines.append(new QGraphicsLineItem);
-        lines.last()->setLine(line);
-        addItem(lines.last());
-    }
+    times_t = times;
+    setUp();
 }
 
 void Scene::clearDots()

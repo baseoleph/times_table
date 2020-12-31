@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <QtMath>
 
 #include "mqgraphicsview.h"
 #include "scene.h"
@@ -22,20 +23,25 @@ public:
 private slots:
     void on_lineEditd_dots_textEdited(const QString &arg1);
 
-    void on_pushButton_dots_clicked();
-
     void on_lineEditd_times_textEdited(const QString &arg1);
 
-    void on_pushButton_times_clicked();
+    void on_lineEditd_step_textEdited(const QString &arg1);
+
+    void on_pushButton_step_clicked();
+
+    void animate();
 
 private:
     Ui::MainWindow *ui;
     MQGraphicsView *mview = nullptr;
     Scene *scene = nullptr;
     QTimer *tm = nullptr;
+    QTimer *tm_go = nullptr;
 
     int count = 0;
     double times = 0;
+    double step = 0;
+    bool is_play = false;
     void setUpScene();
 };
 #endif // MAINWINDOW_H

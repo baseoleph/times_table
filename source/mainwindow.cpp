@@ -87,5 +87,21 @@ void MainWindow::animate()
 //    else
 //    {
 //        tm_go->start(50);
-//    }
+    //    }
+}
+
+void MainWindow::on_pushButton_left_clicked()
+{
+    tm_go->stop();
+    times = ceil(times - 1);
+    ui->lineEditd_times->setText(QString::number(times));
+    mview->mscene->updateLines(times);
+}
+
+void MainWindow::on_pushButton_right_clicked()
+{
+    tm_go->stop();
+    times = floor(times + 1);
+    ui->lineEditd_times->setText(QString::number(times));
+    mview->mscene->updateLines(times);
 }

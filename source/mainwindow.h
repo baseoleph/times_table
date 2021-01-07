@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <QKeyEvent>
 #include <QtMath>
 
 #include "mqgraphicsview.h"
@@ -30,6 +31,11 @@ private slots:
     void on_pushButton_step_clicked();
 
     void animate();
+
+
+    void on_pushButton_left_clicked();
+
+    void on_pushButton_right_clicked();
 
 private:
     Ui::MainWindow *ui;

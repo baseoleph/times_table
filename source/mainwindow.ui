@@ -100,7 +100,7 @@
              <string>or press PageDown</string>
             </property>
             <property name="text">
-             <string>Right</string>
+             <string>next</string>
             </property>
            </widget>
           </item>
@@ -113,7 +113,7 @@
              <string>or press PageUp</string>
             </property>
             <property name="text">
-             <string>Left</string>
+             <string>previous</string>
             </property>
            </widget>
           </item>

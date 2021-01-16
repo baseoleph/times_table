@@ -107,6 +107,7 @@ void MainWindow::animate()
 void MainWindow::on_pushButton_left_clicked()
 {
     timer_animate->stop();
+    ui->pushButton_step->setText("start");
     times = ceil(times - 1);
     ui->lineEditd_times->setText(QString::number(times));
     mview->mscene->updateLines(times);
@@ -115,6 +116,7 @@ void MainWindow::on_pushButton_left_clicked()
 void MainWindow::on_pushButton_right_clicked()
 {
     timer_animate->stop();
+    ui->pushButton_step->setText("start");
     times = floor(times + 1);
     ui->lineEditd_times->setText(QString::number(times));
     mview->mscene->updateLines(times);

@@ -1,3 +1,6 @@
+# Times Table
+# Copyright (C) 2021 baseoleph@gmail.com
+
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets

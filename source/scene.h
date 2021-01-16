@@ -1,4 +1,4 @@
-// Multiplication Table
+// Times Table
 // Copyright (C) 2021 baseoleph@gmail.com
 
 // This program is free software: you can redistribute it and/or modify

@@ -16,7 +16,6 @@ MQGraphicsView::~MQGraphicsView()
 void MQGraphicsView::resizeEvent(QResizeEvent *event)
 {
     Q_UNUSED(event)
-
     updateSceneRect();
 }
 

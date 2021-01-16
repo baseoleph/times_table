@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Multiplication Table</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -48,6 +48,9 @@
               <height>16777215</height>
              </size>
             </property>
+            <property name="focusPolicy">
+             <enum>Qt::ClickFocus</enum>
+            </property>
             <property name="text">
              <string>1</string>
             </property>
@@ -60,6 +63,9 @@
               <width>50</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::ClickFocus</enum>
             </property>
             <property name="text">
              <string>200</string>
@@ -87,6 +93,12 @@
          <layout class="QGridLayout" name="gridLayout_2">
           <item row="0" column="1">
            <widget class="QPushButton" name="pushButton_right">
+            <property name="focusPolicy">
+             <enum>Qt::ClickFocus</enum>
+            </property>
+            <property name="toolTip">
+             <string>or press PageDown</string>
+            </property>
             <property name="text">
              <string>Right</string>
             </property>
@@ -94,6 +106,12 @@
           </item>
           <item row="0" column="0">
            <widget class="QPushButton" name="pushButton_left">
+            <property name="focusPolicy">
+             <enum>Qt::ClickFocus</enum>
+            </property>
+            <property name="toolTip">
+             <string>or press PageUp</string>
+            </property>
             <property name="text">
              <string>Left</string>
             </property>
@@ -132,6 +150,9 @@
               <height>16777215</height>
              </size>
             </property>
+            <property name="focusPolicy">
+             <enum>Qt::ClickFocus</enum>
+            </property>
             <property name="text">
              <string>0.01</string>
             </property>
@@ -144,6 +165,12 @@
               <width>100</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::ClickFocus</enum>
+            </property>
+            <property name="toolTip">
+             <string>or press Enter</string>
             </property>
             <property name="text">
              <string>start</string>
@@ -167,7 +194,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

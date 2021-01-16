@@ -3,12 +3,13 @@
 
 #include <QGraphicsScene>
 #include <QGraphicsEllipseItem>
+#include <QtMath>
 
 class Scene : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    Scene();
+    explicit Scene();
     ~Scene();
 
     void setUp();
@@ -18,18 +19,13 @@ public:
     void clearLines();
 
 private:
-    QGraphicsEllipseItem *el = nullptr;
+    QGraphicsEllipseItem *main_ellipse = nullptr;
     QVector<QGraphicsEllipseItem *> dots;
     QVector<QGraphicsLineItem *> lines;
 
     const int DOT_RAD = 3;
-    int radius;
+    const double SCALE_COEF = 1.5;
     double times_t = 1;
-    int color_cnt = 1;
-    int r = 100;
-    int g = 0;
-    int b = 0;
-    QPointF center_of_el;
 };
 
 #endif // SCENE_H

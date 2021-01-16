@@ -3,8 +3,7 @@
 
 #include <QMainWindow>
 #include <QTimer>
-#include <QKeyEvent>
-#include <QtMath>
+#include <QShortcut>
 
 #include "mqgraphicsview.h"
 #include "scene.h"
@@ -18,36 +17,36 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
     void on_lineEditd_dots_textEdited(const QString &arg1);
-
     void on_lineEditd_times_textEdited(const QString &arg1);
-
     void on_lineEditd_step_textEdited(const QString &arg1);
 
     void on_pushButton_step_clicked();
+    void on_pushButton_left_clicked();
+    void on_pushButton_right_clicked();
 
     void animate();
 
-
-    void on_pushButton_left_clicked();
-
-    void on_pushButton_right_clicked();
-
 private:
+    void setUpScene();
+
     Ui::MainWindow *ui;
     MQGraphicsView *mview = nullptr;
     Scene *scene = nullptr;
-    QTimer *tm = nullptr;
-    QTimer *tm_go = nullptr;
+    QTimer *timer_for_setup_scene = nullptr;
+    QTimer *timer_animate = nullptr;
 
     int count = 0;
     double times = 0;
     double step = 0;
     bool is_play = false;
-    void setUpScene();
+
+    QShortcut *keyPageDown = nullptr;
+    QShortcut *keyPageUp = nullptr;
+    QShortcut *keyEnter = nullptr;
 };
 #endif // MAINWINDOW_H

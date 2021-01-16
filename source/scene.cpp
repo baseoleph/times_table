@@ -2,64 +2,42 @@
 
 Scene::Scene()
 {
-    el = new QGraphicsEllipseItem;
-    el->setPen(QPen(QBrush(QColor(Qt::darkBlue)), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
-    addItem(el);
+    main_ellipse = new QGraphicsEllipseItem;
+    main_ellipse->setPen(QPen(QBrush(QColor(Qt::darkBlue)), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    addItem(main_ellipse);
 }
 
 Scene::~Scene()
 {
     clearLines();
     clearDots();
-    if (el != nullptr) delete el;
+    if (main_ellipse != nullptr) delete main_ellipse;
 }
 
 void Scene::setUp()
 {
-    double scale_coef = 1.5;
-    double diameter = qMin(width(), height())/scale_coef;
-    radius = diameter / 2;
-    QPointF center_of_el = el->rect().center();
+    const double DIAMETER = qMin(width(), height())/SCALE_COEF;
+    const double RADIUS = DIAMETER / 2;
 
-    int rect_width = width()/2 - radius;
-    int rect_height = height()/2 - radius;
+    const int RECT_WIDTH = width()/2 - RADIUS;
+    const int RECT_HEIGHT = height()/2 - RADIUS;
 
-    el->setRect(rect_width, rect_height, radius * 2, radius * 2);
+    main_ellipse->setRect(RECT_WIDTH, RECT_HEIGHT, RADIUS * 2, RADIUS * 2);
 
-    center_of_el = el->rect().center();
+    QPointF center_of_el = main_ellipse->rect().center();
     clearLines();
 
-    color_cnt += 1;
-    color_cnt %= 3;
-
-
-//    if (color_cnt == 0)
-//    {
-//        r += 1;
-//        r %= 255;
-//    }
-//    else if ( color_cnt == 1)
-//    {
-//        g += 2;
-//        g %= 255;
-//    }
-//    else if ( color_cnt == 2)
-//    {
-        b += 1;
-        b %= 255;
-//    }
-
-    QPen pen_line(QColor(r, g, b));
+    QPen pen_line(Qt::darkRed);
     for (int i = 0; i < dots.size(); ++i)
     {
-        double x = center_of_el.x() - radius * qCos(2 * M_PI / dots.size() * i) - DOT_RAD;
-        double y = center_of_el.y() - radius * qSin(2 * M_PI / dots.size() * i) - DOT_RAD;
+        double x = center_of_el.x() - RADIUS * qCos(2 * M_PI / dots.size() * i) - DOT_RAD;
+        double y = center_of_el.y() - RADIUS * qSin(2 * M_PI / dots.size() * i) - DOT_RAD;
         dots[i]->setRect(x, y, DOT_RAD * 2, DOT_RAD * 2);
 
         QLineF line;
         line.setP1(QPointF(x + DOT_RAD, y + DOT_RAD));
-        x = center_of_el.x() - radius * qCos(2 * M_PI / dots.size() * (i * times_t));
-        y = center_of_el.y() - radius * qSin(2 * M_PI / dots.size() * (i * times_t));
+        x = center_of_el.x() - RADIUS * qCos(2 * M_PI / dots.size() * (i * times_t));
+        y = center_of_el.y() - RADIUS * qSin(2 * M_PI / dots.size() * (i * times_t));
         line.setP2(QPointF(x, y));
         lines.append(new QGraphicsLineItem);
         lines.last()->setLine(line);

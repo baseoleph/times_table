@@ -1,7 +1,8 @@
 # Times Table
 
-### Simple program that shows times table in circle
-### Inspired by: https://www.youtube.com/watch?v=qhbuKbxJsk8
-![2021-01-17 (4)](https://user-images.githubusercontent.com/63150311/104823384-c0360a00-585a-11eb-9357-61165099c489.png)
-![2021-01-17 (3)](https://user-images.githubusercontent.com/63150311/104823387-c330fa80-585a-11eb-82d8-b4a602846fb6.png)
-![2021-01-17 (2)](https://user-images.githubusercontent.com/63150311/104823390-c4622780-585a-11eb-8b7e-89377aca19b8.png)
+#### Simple program that shows times table in circle
+#### Inspired by: https://www.youtube.com/watch?v=qhbuKbxJsk8
+
+![2021-01-17 (5)](https://user-images.githubusercontent.com/63150311/104823582-4ef75680-585c-11eb-85ed-caf85a8b2ac2.png)
+![2021-01-17 (6)](https://user-images.githubusercontent.com/63150311/104823584-50c11a00-585c-11eb-8604-d54c2707e673.png)
+![2021-01-17 (7)](https://user-images.githubusercontent.com/63150311/104823586-53bc0a80-585c-11eb-8376-546decbcef1e.png)
